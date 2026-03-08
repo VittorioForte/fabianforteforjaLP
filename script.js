@@ -336,35 +336,7 @@ function initReveal() {
   targets.forEach(el => observer.observe(el));
 }
 
-/* ─────────────────────────────────────────────────
-   CURSOR PERSONALIZADO
-   Punto + seguidor con inercia (lerp)
-───────────────────────────────────────────────── */
-(function initCursor() {
-  // Saltear en dispositivos táctiles
-  if (window.matchMedia('(pointer: coarse)').matches) return;
 
-  let mx = 0, my = 0, fx = 0, fy = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    if (cursorDot) {
-      cursorDot.style.left = mx + 'px';
-      cursorDot.style.top  = my + 'px';
-    }
-  });
-
-  function trackFollower() {
-    fx += (mx - fx) * 0.11;
-    fy += (my - fy) * 0.11;
-    if (cursorRing) {
-      cursorRing.style.left = fx + 'px';
-      cursorRing.style.top  = fy + 'px';
-    }
-    requestAnimationFrame(trackFollower);
-  }
-  trackFollower();
-})();
 
 /* ─────────────────────────────────────────────────
    SCROLL SUAVE — enlaces de anclaje

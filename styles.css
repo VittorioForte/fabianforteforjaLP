@@ -38,7 +38,6 @@ body {
   font-weight: 300;
   line-height: 1.7;
   overflow-x: hidden;
-  cursor: none;
 }
 
 a { color: inherit; text-decoration: none; }
@@ -534,24 +533,6 @@ body:has(button:hover) .cursor-follower {
   text-orientation: mixed;
 }
 
-/* ── Contador de frames ─────────────────────────── */
-.frame-counter {
-  position: absolute;
-  bottom: clamp(32px, 7vh, 80px);
-  left: var(--gutter);
-  font-size: 10px;
-  letter-spacing: 0.3em;
-  color: rgba(255,255,255,0.2);
-  z-index: 6;
-  font-variant-numeric: tabular-nums;
-  display: flex; gap: 4px; align-items: center;
-}
-.frame-sep { opacity: 0.4; }
-#frameNumDisplay { color: rgba(255,255,255,0.35); }
-
-/* ── Etiqueta del accent ───────────────────── */
-.accent { color: var(--accent); }
-
 /* ═══════════════════════════════════════════════════
    SECCIONES PRINCIPALES
 ═══════════════════════════════════════════════════ */
@@ -655,7 +636,25 @@ body:has(button:hover) .cursor-follower {
 
 
 /* ── PROCESO ────────────────────────────────────── */
-.section-proceso { background: var(--bg-mid); }
+
+.section-proceso {
+  position: relative;              /* para contenido encima */
+  min-height: 100vh;
+  background: url("img/fondofijomadera.png") no-repeat center top; /* imagen centrada horizontalmente, empieza arriba */
+  background-size: auto;           /* mantiene tamaño real de la imagen */
+  background-attachment: fixed;    /* queda fija al hacer scroll */
+  z-index: 0;                      /* fondo detrás del contenido */
+  overflow: hidden;                /* evita que bordes sobresalgan */
+}
+
+/* Contenido dentro de la sección */
+.section-proceso > * {
+  position: relative;
+  z-index: 1;                      /* texto y elementos encima del fondo */
+  color: var(--text);              /* asegurar lectura */
+  background: rgba(0,0,0,0.3);     /* opcional: máscara semi-transparente para mejorar contraste */
+  padding: 20px;
+}
 
 .process-steps {
   display: grid;
@@ -691,6 +690,12 @@ body:has(button:hover) .cursor-follower {
   margin-bottom: 10px;
 }
 .step-body p { font-size: 13px; color: var(--text-dim); line-height: 1.65; }
+
+@supports (-webkit-touch-callout: none) or (background-attachment: local) {
+  .section-proceso {
+    background-attachment: scroll; /* en móviles se mantiene scrollable */
+  }
+}
 
 /* ── PROYECTOS ──────────────────────────────────── */
 .section-trabajo { background: var(--bg); }
@@ -851,6 +856,24 @@ body:has(button:hover) .cursor-follower {
 
 .carousel-img.active{
   opacity:1;
+}
+
+
+.quote-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 16px;
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.quote-btn:hover {
+  background-color: #e65c00;
 }
 
 /* BOTONES */
