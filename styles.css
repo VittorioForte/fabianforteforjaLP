@@ -636,6 +636,24 @@ body:has(button:hover) .cursor-follower {
   margin: clamp(60px, 8vw, 120px) var(--gutter) 0;
 }
 
+.about-photo {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #e6e6e6;
+  padding: 6px;
+  background: #111;
+  max-width: 100%;
+}
+
+
 /* ── PROCESO ────────────────────────────────────── */
 .section-proceso { background: var(--bg-mid); }
 
@@ -816,6 +834,59 @@ body:has(button:hover) .cursor-follower {
   border-color: rgba(255,106,0,0.3); color: var(--text);
 }
 
+
+.card-carousel{
+  position:absolute;
+  inset:0;
+}
+
+.carousel-img{
+  position:absolute;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+.carousel-img.active{
+  opacity:1;
+}
+
+/* BOTONES */
+
+.carousel-btn{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:40px;
+  height:40px;
+  border:none;
+  background:rgba(0,0,0,0.5);
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+  z-index:5;
+  opacity:0;
+  transition:opacity .3s ease, background .3s;
+}
+
+.project-card:hover .carousel-btn{
+  opacity:1;
+}
+
+.carousel-btn:hover{
+  background:rgba(0,0,0,0.8);
+}
+
+.carousel-btn.prev{
+  left:10px;
+}
+
+.carousel-btn.next{
+  right:10px;
+}
+
 /* ── CONTACTO ───────────────────────────────────── */
 .section-contacto { background: var(--bg-mid); overflow: hidden; }
 .contact-inner { max-width: 900px; position: relative; }
@@ -920,6 +991,11 @@ body:has(button:hover) .cursor-follower {
   .projects-grid { grid-template-columns: 1fr; }
 
   .hero-progress { display: none; }
+
+  .about-photo img {
+    width: 140px;
+    height: 140px;
+  }
 
   /* Reajuste de etapas en móvil */
   #stage3 { align-items: flex-start; text-align: left; padding-left: var(--gutter); padding-right: var(--gutter); }

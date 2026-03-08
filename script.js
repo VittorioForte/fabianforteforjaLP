@@ -502,3 +502,32 @@ async function main() {
    INICIO
 ───────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', main);
+
+
+
+document.querySelectorAll(".project-card").forEach(card => {
+
+  const images = card.querySelectorAll(".carousel-img");
+  const next = card.querySelector(".next");
+  const prev = card.querySelector(".prev");
+
+  let index = 0;
+
+  function showImage(i){
+    images.forEach(img => img.classList.remove("active"));
+    images[i].classList.add("active");
+  }
+
+  next.addEventListener("click", () => {
+    index++;
+    if(index >= images.length) index = 0;
+    showImage(index);
+  });
+
+  prev.addEventListener("click", () => {
+    index--;
+    if(index < 0) index = images.length - 1;
+    showImage(index);
+  });
+
+});
