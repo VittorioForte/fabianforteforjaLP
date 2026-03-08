@@ -19,7 +19,7 @@ const CONFIG = {
   BASE_URL:        'https://fabianforteforjahero.vercel.app/frames',
   FRAME_COUNT:     191,          // frames totales (0–190)
   DELAY_TAG:       '_delay-0.041s',
-  SCROLL_DISTANCE: 8000,         // px de scroll para el hero completo
+  SCROLL_DISTANCE: 2500,         // px de scroll para el hero completo
 
   // Etapas: [inicio, fin] como fracción del scroll (0→1)
   // El texto de cada etapa es visible en su ventana
