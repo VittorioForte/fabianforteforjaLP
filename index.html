@@ -1,75 +1,69 @@
 <!doctype html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FABIAN FORTE FORJA — Estudio Creativo</title>
 
-    <!-- Fuentes: Bebas Neue (display) + Barlow (cuerpo) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FABIAN FORTE FORJA — Estudio Creativo</title>
 
-    <!-- GSAP + ScrollTrigger CDN -->
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
-      defer
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      defer
-    ></script>
+  <!-- Fuentes: Bebas Neue (display) + Barlow (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap"
+    rel="stylesheet" />
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
+  <!-- GSAP + ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
-  <body>
-    <!-- ═══════════════════════════════════════════
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- ═══════════════════════════════════════════
        PANTALLA DE CARGA
   ═══════════════════════════════════════════ -->
-    <div id="loader">
-      <div class="loader-inner">
-        <span class="loader-logo">FFF</span>
-        <div class="loader-bar-track">
-          <div class="loader-bar" id="loaderBar"></div>
-        </div>
-        <span class="loader-pct" id="loaderPct">0%</span>
-        <span class="loader-label">Cargando experiencia</span>
+  <div id="loader">
+    <div class="loader-inner">
+      <span class="loader-logo">FFF</span>
+      <div class="loader-bar-track">
+        <div class="loader-bar" id="loaderBar"></div>
       </div>
+      <span class="loader-pct" id="loaderPct">0%</span>
+      <span class="loader-label">Cargando experiencia</span>
     </div>
+  </div>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════
        BARRA DE NAVEGACIÓN
   ═══════════════════════════════════════════ -->
-    <nav id="navbar">
-      <div class="nav-inner">
-        <a href="#hero" class="nav-logo">FABIAN FORTE FORJA</a>
-        <ul class="nav-links">
-          <li><a href="#sobre" class="nav-link">Estudio</a></li>
-          <li><a href="#proceso" class="nav-link">Proceso</a></li>
-          <li><a href="#trabajo" class="nav-link">Proyectos</a></li>
-          <li><a href="#contacto" class="nav-link">Contacto</a></li>
-        </ul>
-        <button class="nav-hamburger" id="navHamburger" aria-label="Menú">
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-    </nav>
-
-    <!-- Menú móvil superpuesto -->
-    <div class="mobile-nav" id="mobileNav">
-      <ul>
-        <li><a href="#sobre" class="mobile-link">Estudio</a></li>
-        <li><a href="#proceso" class="mobile-link">Proceso</a></li>
-        <li><a href="#trabajo" class="mobile-link">Proyectos</a></li>
-        <li><a href="#contacto" class="mobile-link">Contacto</a></li>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">FABIAN FORTE FORJA</a>
+      <ul class="nav-links">
+        <li><a href="#sobre" class="nav-link">Estudio</a></li>
+        <li><a href="#proceso" class="nav-link">Proceso</a></li>
+        <li><a href="#trabajo" class="nav-link">Proyectos</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
       </ul>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- Menú móvil superpuesto -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="#sobre" class="mobile-link">Estudio</a></li>
+      <li><a href="#proceso" class="mobile-link">Proceso</a></li>
+      <li><a href="#trabajo" class="mobile-link">Proyectos</a></li>
+      <li><a href="#contacto" class="mobile-link">Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
        HERO — ANIMACIÓN CINEMATOGRÁFICA POR SCROLL
 
        El canvas permanece fijo mientras el usuario
@@ -77,380 +71,371 @@
        se revelan progresivamente sobre la animación.
        La animación nunca se interrumpe.
   ═══════════════════════════════════════════ -->
-    <section id="hero" class="hero">
-      <!-- Canvas: renderiza la secuencia de frames -->
-      <canvas id="heroCanvas"></canvas>
+  <section id="hero" class="hero">
+    <!-- Canvas: renderiza la secuencia de frames -->
+    <canvas id="heroCanvas"></canvas>
 
-      <!-- Barras de letterbox cinematográficas -->
-      <div class="letterbox top"></div>
-      <div class="letterbox bottom"></div>
+    <!-- Barras de letterbox cinematográficas -->
+    <div class="letterbox top"></div>
+    <div class="letterbox bottom"></div>
 
-      <!-- Capa de viñeta sobre el canvas -->
-      <div class="hero-vignette"></div>
+    <!-- Capa de viñeta sobre el canvas -->
+    <div class="hero-vignette"></div>
 
-      <!-- ─────────────────────────────────────────
+    <!-- ─────────────────────────────────────────
          ETAPA 1 — INTRO
          Gran título. Aparece al inicio.
          Se desvanece al avanzar.
     ───────────────────────────────────────── -->
-      <div class="story-stage" id="stage1">
-        <div class="stage-eyebrow">
-          <span class="eyebrow-line"></span>
-          Buenos Aires
-        </div>
-        <h1 class="stage-main-title">
-          <span class="smt-line" data-index="0">FABIAN</span>
-          <span class="smt-line" data-index="1">FORTE</span>
-          <span class="smt-line accent" data-index="2">FORJA</span>
-        </h1>
+    <div class="story-stage" id="stage1">
+      <div class="stage-eyebrow">
+        <span class="eyebrow-line"></span>
+        Buenos Aires
       </div>
+      <h1 class="stage-main-title">
+        <span class="smt-line" data-index="0">FABIAN</span>
+        <span class="smt-line" data-index="1">FORTE</span>
+        <span class="smt-line accent" data-index="2">FORJA</span>
+      </h1>
+    </div>
 
-      <!-- ─────────────────────────────────────────
+    <!-- ─────────────────────────────────────────
          ETAPA 2 — CONCEPTO
          Declaración editorial centrada.
          Aparece mientras la animación avanza.
     ───────────────────────────────────────── -->
-      <div class="story-stage stage-centered" id="stage2">
-        <div class="stage-label-pill">01 — Concepto</div>
-        <h2 class="stage-statement">
-          Forjando ideas<br />
-          en experiencias<br />
-          <em>digitales.</em>
-        </h2>
-        <div class="stage-rule"></div>
-      </div>
+    <div class="story-stage stage-centered" id="stage2">
+      <div class="stage-label-pill">01 — Concepto</div>
+      <h2 class="stage-statement">
+        Forjando ideas<br />
+        en experiencias<br />
+        <em>digitales.</em>
+      </h2>
+      <div class="stage-rule"></div>
+    </div>
 
-      <!-- ─────────────────────────────────────────
+    <!-- ─────────────────────────────────────────
          ETAPA 3 — OFICIO
          Bloque editorial lateral derecho.
          Describe el proceso del estudio.
     ───────────────────────────────────────── -->
-      <div class="story-stage stage-right" id="stage3">
-        <div class="stage-label-pill">02 — Oficio</div>
-        <p class="stage-body-text">
-          Donde el diseño, el arte<br />
-          y el filo se fusionan<br />
-          para crear obras de acero.
-        </p>
-        <div class="stage-metrics">
-          <div class="stage-metric">
-            <span class="sm-num">07+</span>
-            <span class="sm-label">Años de oficio</span>
-          </div>
-          <div class="stage-metric">
-            <span class="sm-num">30+</span>
-            <span class="sm-label">Proyectos entregados</span>
-          </div>
+    <div class="story-stage stage-right" id="stage3">
+      <div class="stage-label-pill">02 — Oficio</div>
+      <p class="stage-body-text">
+        Donde el diseño, el arte<br />
+        y el filo se fusionan<br />
+        para crear obras de acero.
+      </p>
+      <div class="stage-metrics">
+        <div class="stage-metric">
+          <span class="sm-num">07+</span>
+          <span class="sm-label">Años de oficio</span>
+        </div>
+        <div class="stage-metric">
+          <span class="sm-num">30+</span>
+          <span class="sm-label">Proyectos entregados</span>
         </div>
       </div>
+    </div>
 
-      <!-- ─────────────────────────────────────────
+    <!-- ─────────────────────────────────────────
          ETAPA 4 — LLAMADA A LA ACCIÓN
          Mensaje final. Invita a continuar.
          Permanece hasta salir del hero.
     ───────────────────────────────────────── -->
-      <div class="story-stage stage-cta" id="stage4">
-        <div class="stage-label-pill">03 — Conecta</div>
-        <h2 class="stage-cta-title">
-          ¿Tenés una idea?<br />
-          <span class="accent">Forjémosla juntos.</span>
-        </h2>
-        <a href="#sobre" class="btn-hero-cta">
-          <span>Descubrir el Estudio</span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="M3 8h10M9 4l4 4-4 4"
-              stroke="currentColor"
-              stroke-width="1.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
-      </div>
+    <div class="story-stage stage-cta" id="stage4">
+      <div class="stage-label-pill">03 — Conecta</div>
+      <h2 class="stage-cta-title">
+        ¿Tenés una idea?<br />
+        <span class="accent">Forjémosla juntos.</span>
+      </h2>
+      <a href="#sobre" class="btn-hero-cta">
+        <span>Descubrir el Estudio</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
 
-      <!-- ─────────────────────────────────────────
+    <!-- ─────────────────────────────────────────
          INDICADOR DE PROGRESO (borde derecho)
     ───────────────────────────────────────── -->
-      <div class="hero-progress" id="heroProgress">
-        <div class="hero-progress-fill" id="heroProgressFill"></div>
-        <div class="progress-stages">
-          <span class="pstage" id="pstage1" title="Intro"></span>
-          <span class="pstage" id="pstage2" title="Concepto"></span>
-          <span class="pstage" id="pstage3" title="Oficio"></span>
-          <span class="pstage" id="pstage4" title="Conecta"></span>
-        </div>
+    <div class="hero-progress" id="heroProgress">
+      <div class="hero-progress-fill" id="heroProgressFill"></div>
+      <div class="progress-stages">
+        <span class="pstage" id="pstage1" title="Intro"></span>
+        <span class="pstage" id="pstage2" title="Concepto"></span>
+        <span class="pstage" id="pstage3" title="Oficio"></span>
+        <span class="pstage" id="pstage4" title="Conecta"></span>
       </div>
+    </div>
 
-      <!-- Pista de desplazamiento inicial -->
-      <div class="scroll-cue" id="scrollCue">
-        <div class="scroll-cue-line"></div>
-        <span>Desplazá</span>
-      </div>
+    <!-- Pista de desplazamiento inicial -->
+    <div class="scroll-cue" id="scrollCue">
+      <div class="scroll-cue-line"></div>
+      <span>Desplazá</span>
+    </div>
 
-      <!-- Contador de frames (esquina inferior izquierda) -->
-      <div class="frame-counter" id="frameCounter">
-        <span id="frameNumDisplay">000</span>
-        <span class="frame-sep">/</span>190
-      </div>
-    </section>
+    <!-- Contador de frames (esquina inferior izquierda) -->
+    <div class="frame-counter" id="frameCounter">
+      <span id="frameNumDisplay">000</span>
+      <span class="frame-sep">/</span>190
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════
        SECCIÓN 1 — SOBRE EL ESTUDIO
   ═══════════════════════════════════════════ -->
-    <section id="sobre" class="section section-sobre">
-      <div class="container">
-        <div class="section-label reveal-up">01 — Estudio</div>
-        <h2 class="section-title reveal-up">Sobre el<br /><em>Estudio</em></h2>
-        <div class="about-grid">
-          <div class="about-text reveal-up">
-            <p class="lead">Fabian Forte Forja - Forjo tus ideas</p>
-            <p>
-              Forjamos piezas únicas donde el acero, el fuego y la tradición se
-              encuentran. Cada hoja nace del oficio, la paciencia y la
-              precisión. Cada detalle está pensado para perdurar.<br /><br />
+  <section id="sobre" class="section section-sobre">
+    <div class="container">
+      <div class="section-label reveal-up">01 — Estudio</div>
+      <h2 class="section-title reveal-up">Sobre el<br /><em>Estudio</em></h2>
+      <div class="about-grid">
+        <div class="about-text reveal-up">
+          <p class="lead">Fabian Forte Forja - Forjo tus ideas</p>
+          <p>
+            Forjamos piezas únicas donde el acero, el fuego y la tradición se
+            encuentran. Cada hoja nace del oficio, la paciencia y la
+            precisión. Cada detalle está pensado para perdurar.<br /><br />
 
-              Me das tu idea, te cotizo, te lo armo listo para ser usado.<br /><br />
+            Me das tu idea, te cotizo, te lo armo listo para ser usado.<br /><br />
 
-              ¿Una navaja para pesca? Hecho.<br />
-              ¿Juego de asado para el Día del Padre? Hecho.<br /><br />
-              Todo lo que se te ocurra es discutible.
-            </p>
-            <div class="about-photo">
-              <img src="img/fabian.png" alt="Fabian Forte - Forjador" />
-            </div>
+            ¿Una navaja para pesca? Hecho.<br />
+            ¿Juego de asado para el Día del Padre? Hecho.<br /><br />
+            Todo lo que se te ocurra es discutible.
+          </p>
+          <div class="about-photo">
+            <img src="img/fabian.png" alt="Fabian Forte - Forjador" />
           </div>
-          <div class="about-stats reveal-up">
-            <div class="stat">
-              <span class="stat-label">Desde</span>
-              <span class="stat-num">2016</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">30+</span>
-              <span class="stat-label">Proyectos entregados</span>
-            </div>
-            <div class="stat">
-              <span class="stat-num">3</span>
-              <span class="stat-label">Disciplinas unificadas</span>
-            </div>
+        </div>
+        <div class="about-stats reveal-up">
+          <div class="stat">
+            <span class="stat-label">Desde</span>
+            <span class="stat-num">2016</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">30+</span>
+            <span class="stat-label">Proyectos entregados</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">3</span>
+            <span class="stat-label">Disciplinas unificadas</span>
           </div>
         </div>
       </div>
-      <div class="section-rule reveal-rule"></div>
-    </section>
+    </div>
+    <div class="section-rule reveal-rule"></div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════
        SECCIÓN 2 — PROCESO
   ═══════════════════════════════════════════ -->
-    <section id="proceso" class="section section-proceso">
-      <div class="container">
-        <div class="section-label reveal-up">02 — Método</div>
-        <h2 class="section-title reveal-up">Nuestro<br /><em>Proceso</em></h2>
-        <div class="process-steps">
-          <div class="process-step reveal-step">
-            <div class="step-num">01</div>
-            <div class="step-body">
-              <h3>Contacto</h3>
-              <p>Me contactas a mis redes.</p>
-            </div>
+  <section id="proceso" class="section section-proceso">
+    <div class="container">
+      <div class="section-label reveal-up">02 — Método</div>
+      <h2 class="section-title reveal-up">Nuestro<br /><em>Proceso</em></h2>
+      <div class="process-steps">
+        <div class="process-step reveal-step">
+          <div class="step-num">01</div>
+          <div class="step-body">
+            <h3>Contacto</h3>
+            <p>Me contactas a mis redes.</p>
           </div>
-          <div class="process-step reveal-step">
-            <div class="step-num">02</div>
-            <div class="step-body">
-              <h3>Idea</h3>
-              <p>Me propones tu idea, tu creatividad para el diseño.</p>
-            </div>
+        </div>
+        <div class="process-step reveal-step">
+          <div class="step-num">02</div>
+          <div class="step-body">
+            <h3>Idea</h3>
+            <p>Me propones tu idea, tu creatividad para el diseño.</p>
           </div>
-          <div class="process-step reveal-step">
-            <div class="step-num">03</div>
-            <div class="step-body">
-              <h3>Cotizacion</h3>
-              <p>Te cotizo el trabajo.</p>
-            </div>
+        </div>
+        <div class="process-step reveal-step">
+          <div class="step-num">03</div>
+          <div class="step-body">
+            <h3>Cotizacion</h3>
+            <p>Te cotizo el trabajo.</p>
           </div>
-          <div class="process-step reveal-step">
-            <div class="step-num">04</div>
-            <div class="step-body">
-              <h3>Desarrollo</h3>
-              <p>
-                Empiezo con tu obra, aca habran etapas para discutir detalles de
-                desarrollo. Contactos en cada etapa de la maquetacion.
-              </p>
-            </div>
+        </div>
+        <div class="process-step reveal-step">
+          <div class="step-num">04</div>
+          <div class="step-body">
+            <h3>Desarrollo</h3>
+            <p>
+              Empiezo con tu obra, aca habran etapas para discutir detalles de
+              desarrollo. Contactos en cada etapa de la maquetacion.
+            </p>
           </div>
-          <div class="process-step reveal-step">
-            <div class="step-num">05</div>
-            <div class="step-body">
-              <h3>Envio</h3>
-              <p>Retiras en el estudio o te ofrecemos envios a todo el pais.</p>
-            </div>
+        </div>
+        <div class="process-step reveal-step">
+          <div class="step-num">05</div>
+          <div class="step-body">
+            <h3>Envio</h3>
+            <p>Retiras en el estudio o te ofrecemos envios a todo el pais.</p>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════
        SECCIÓN 3 — PROYECTOS
   ═══════════════════════════════════════════ -->
-    <section id="trabajo" class="section section-trabajo">
-      <div class="container">
-        <div class="section-label reveal-up">03 — Portafolio</div>
-        <h2 class="section-title reveal-up">
-          Proyectos<br /><em>Seleccionados</em>
-        </h2>
-        <div class="projects-grid">
-          <article class="project-card reveal-card">
-            <div class="card-media">
-              <div class="card-carousel">
-                <img src="./img/asado1.png" class="carousel-img active" />
-                <img src="./img/asado2.png" class="carousel-img" />
-              </div>
+  <section id="trabajo" class="section section-trabajo">
+    <div class="container">
+      <div class="section-label reveal-up">03 — Portafolio</div>
+      <h2 class="section-title reveal-up">
+        Proyectos<br /><em>Seleccionados</em>
+      </h2>
+      <div class="projects-grid">
+        <article class="project-card reveal-card">
+          <div class="card-media">
+            <div class="card-carousel">
+              <img src="./img/asado1.png" class="carousel-img active" />
+              <img src="./img/asado2.png" class="carousel-img" />
+            </div>
 
-              <button class="carousel-btn prev">‹</button>
-              <button class="carousel-btn next">›</button>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+          </div>
+          <div class="card-body">
+            <span class="card-index">01</span>
+            <h3 class="card-title">Juego Asado</h3>
+            <p class="card-desc">
+              Set de cuchillo y trinche ideal para parrilla, fabricado con
+              acero de alta calidad para lograr cortes precisos y un manejo
+              cómodo. Diseñado para disfrutar el asado con estilo, resistencia
+              y tradición en cada reunión.
+            </p>
+            <div class="card-tags">
+              <span>Asado</span><span>Parrilla</span>
             </div>
-            <div class="card-body">
-              <span class="card-index">01</span>
-              <h3 class="card-title">Juego Asado</h3>
-              <p class="card-desc">
-                Set de cuchillo y trinche ideal para parrilla, fabricado con
-                acero de alta calidad para lograr cortes precisos y un manejo
-                cómodo. Diseñado para disfrutar el asado con estilo, resistencia
-                y tradición en cada reunión.
-              </p>
-              <div class="card-tags">
-                <span>Asado</span><span>Parrilla</span>
-              </div>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card reveal-card">
-            <div class="card-media">
-              <div class="card-carousel">
-                <img src="./img/navaja1.png" class="carousel-img active" />
-                <img src="./img/navaja2.png" class="carousel-img" />
-                <img src="./img/navaja3.png" class="carousel-img" />
-              </div>
+        <article class="project-card reveal-card">
+          <div class="card-media">
+            <div class="card-carousel">
+              <img src="./img/navaja1.png" class="carousel-img active" />
+              <img src="./img/navaja2.png" class="carousel-img" />
+              <img src="./img/navaja3.png" class="carousel-img" />
+            </div>
 
-              <button class="carousel-btn prev">‹</button>
-              <button class="carousel-btn next">›</button>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+          </div>
+          <div class="card-body">
+            <span class="card-index">02</span>
+            <h3 class="card-title">Navajas</h3>
+            <p class="card-desc">
+              Navajas forjadas a mano donde el acero, el fuego y la precisión
+              se encuentran. Cada pieza es única, pensada para acompañarte en
+              el uso diario o en la naturaleza, combinando funcionalidad,
+              durabilidad y carácter.
+            </p>
+            <div class="card-tags">
+              <span>Pesca</span><span>Navajas</span>
             </div>
-            <div class="card-body">
-              <span class="card-index">02</span>
-              <h3 class="card-title">Navajas</h3>
-              <p class="card-desc">
-                Navajas forjadas a mano donde el acero, el fuego y la precisión
-                se encuentran. Cada pieza es única, pensada para acompañarte en
-                el uso diario o en la naturaleza, combinando funcionalidad,
-                durabilidad y carácter.
-              </p>
-              <div class="card-tags">
-                <span>Pesca</span><span>Navajas</span>
-              </div>
-            </div>
-          </article>
+          </div>
+        </article>
 
-          <article class="project-card reveal-card">
-            <div class="card-media">
-              <div class="card-carousel">
-                <img src="./img/cuchillo1.png" class="carousel-img active" />
-                <img src="./img/cuchillo2.png" class="carousel-img" />
-                <img src="./img/cuchillo3.png" class="carousel-img" />
-                <img src="./img/cuchillo4.png" class="carousel-img" />
-                <img src="./img/cuchillo5.png" class="carousel-img" />
-                <img src="./img/cuchillo6.png" class="carousel-img" />
-              </div>
+        <article class="project-card reveal-card">
+          <div class="card-media">
+            <div class="card-carousel">
+              <img src="./img/cuchillo1.png" class="carousel-img active" />
+              <img src="./img/cuchillo2.png" class="carousel-img" />
+              <img src="./img/cuchillo3.png" class="carousel-img" />
+              <img src="./img/cuchillo4.png" class="carousel-img" />
+              <img src="./img/cuchillo5.png" class="carousel-img" />
+              <img src="./img/cuchillo6.png" class="carousel-img" />
+            </div>
 
-              <button class="carousel-btn prev">‹</button>
-              <button class="carousel-btn next">›</button>
+            <button class="carousel-btn prev">‹</button>
+            <button class="carousel-btn next">›</button>
+          </div>
+          <div class="card-body">
+            <span class="card-index">03</span>
+            <h3 class="card-title">Cuchillos</h3>
+            <p class="card-desc">
+              Navajas forjadas a mano donde el acero, el fuego y la precisión
+              se encuentran. Cada pieza es única, pensada para acompañarte en
+              el uso diario o en la naturaleza, combinando funcionalidad,
+              durabilidad y carácter.
+            </p>
+            <div class="card-tags">
+              <span>Cuchillos</span><span>Cocina</span>
             </div>
-            <div class="card-body">
-              <span class="card-index">03</span>
-              <h3 class="card-title">Cuchillos</h3>
-              <p class="card-desc">
-                Navajas forjadas a mano donde el acero, el fuego y la precisión
-                se encuentran. Cada pieza es única, pensada para acompañarte en
-                el uso diario o en la naturaleza, combinando funcionalidad,
-                durabilidad y carácter.
-              </p>
-              <div class="card-tags">
-                <span>Cuchillos</span><span>Cocina</span>
-              </div>
-            </div>
-          </article>
-        </div>
+          </div>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════
        SECCIÓN 4 — CONTACTO
   ═══════════════════════════════════════════ -->
-    <section id="contacto" class="section section-contacto">
-      <div class="container">
-        <div class="contact-inner">
-          <div class="section-label reveal-up">04 — Conecta</div>
-          <h2 class="contact-title reveal-up">
-            Construyamos<br />
-            <span class="accent">Algo Juntos</span>
-          </h2>
-          <p class="contact-sub reveal-up">
-            ¿Tenés una idea? Forjémosla juntos.
-          </p>
-          <div class="contact-buttons reveal-up">
-            <a href="mailto:fabiandorte@gmail.com" class="btn-primary">
-              <span class="btn-icon">✉</span> Correo
-            </a>
-            <a
-              href="https://www.instagram.com/fabianforteforja/"
-              target="_blank"
-              rel="noopener"
-              class="btn-outline"
-            >
-              <span class="btn-icon">◎</span> Instagram
-            </a>
-            <a href="tel:+541165013092" class="btn-outline">
-              <span class="btn-icon">☎</span> Telefono
-            </a>
-            <a href="#" class="btn-outline">
-              <span class="btn-icon">→</span> Portafolio
-            </a>
-          </div>
-          <div class="contact-marquee" aria-hidden="true">
-            <div class="marquee-track">
-              <span
-                >FORJAR · CREAR · ITERAR · DISEÑAR · CONSTRUIR · LANZAR · FABIAN
-                FORTE FORJA ·
-              </span>
-              <span
-                >FORJAR · CREAR · ITERAR · DISEÑAR · CONSTRUIR · LANZAR · FABIAN
-                FORTE FORJA ·
-              </span>
-            </div>
+  <section id="contacto" class="section section-contacto">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="section-label reveal-up">04 — Conecta</div>
+        <h2 class="contact-title reveal-up">
+          Construyamos<br />
+          <span class="accent">Algo Juntos</span>
+        </h2>
+        <p class="contact-sub reveal-up">
+          ¿Tenés una idea? Forjémosla juntos.
+        </p>
+        <div class="contact-buttons reveal-up">
+          <a href="mailto:fabiandorte@gmail.com" class="btn-primary">
+            <span class="btn-icon">✉</span> Correo
+          </a>
+          <a href="https://www.instagram.com/fabianforteforja/" target="_blank" rel="noopener" class="btn-outline">
+            <span class="btn-icon">◎</span> Instagram
+          </a>
+          <a href="tel:+541165013092" class="btn-outline">
+            <span class="btn-icon">☎</span> Telefono
+          </a>
+          <a href="#" class="btn-outline">
+            <span class="btn-icon">→</span> Portafolio
+          </a>
+        </div>
+        <div class="contact-marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>FORJAR · CREAR · ITERAR · DISEÑAR · CONSTRUIR · LANZAR · FABIAN
+              FORTE FORJA ·
+            </span>
+            <span>FORJAR · CREAR · ITERAR · DISEÑAR · CONSTRUIR · LANZAR · FABIAN
+              FORTE FORJA ·
+            </span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ═══════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════
        PIE DE PÁGINA
   ═══════════════════════════════════════════ -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <span class="footer-logo">FABIAN FORTE FORJA</span>
-        <span class="footer-copy">© 2025 — Todos los derechos reservados</span>
-      </div>
-    </footer>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span class="footer-logo">FABIAN FORTE FORJA</span>
+      <span class="footer-copy">© 2025 — Todos los derechos reservados</span>
+    </div>
+  </footer>
 
-    <!-- Cursor personalizado -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursorFollower"></div>
+  <!-- Watermark PIXORA -->
+  <a href="https://pixora.com.ar/" class="pixora-watermark" target="_blank" rel="noopener noreferrer"
+    aria-label="Developed by PIXORA">
 
-    <script src="script.js" defer></script>
-  </body>
+    <img src="/img/LogoPixora.ico" alt="PIXORA logo" />
+    <span>Developed by PIXORA</span>
+  </a>
+
+  <!-- Cursor personalizado -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <script src="script.js" defer></script>
+</body>
+
 </html>

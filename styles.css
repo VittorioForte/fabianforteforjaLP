@@ -996,6 +996,46 @@ body:has(button:hover) .cursor-follower {
 }
 
 /* ═══════════════════════════════════════════════════
+   PIXORA MARCA DE AGUA
+═══════════════════════════════════════════════════ */
+
+.pixora-watermark {
+  position: fixed;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 6px 10px;
+  font-size: 12px;
+  font-family: system-ui, sans-serif;
+
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(6px);
+  color: #fff;
+
+  border-radius: 999px;
+  text-decoration: none;
+
+  opacity: 0.6;
+  transition: opacity .25s ease, transform .25s ease;
+
+  z-index: 9999;
+}
+
+.pixora-watermark img{
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.pixora-watermark:hover{
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════════════════ */
 @media (max-width: 1100px) {
@@ -1019,6 +1059,13 @@ body:has(button:hover) .cursor-follower {
     width: 140px;
     height: 140px;
   }
+
+    .pixora-watermark{
+    bottom: 8px;
+    right: 8px;
+    font-size: 11px;
+  }
+
 
   /* Reajuste de etapas en móvil */
   #stage3 { align-items: flex-start; text-align: left; padding-left: var(--gutter); padding-right: var(--gutter); }
