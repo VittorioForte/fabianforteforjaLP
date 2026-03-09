@@ -1003,36 +1003,55 @@ body:has(button:hover) .cursor-follower {
   position: fixed;
   bottom: 14px;
   right: 14px;
+
   display: flex;
   align-items: center;
-  gap: 6px;
 
-  padding: 6px 10px;
-  font-size: 12px;
-  font-family: system-ui, sans-serif;
+  width: 32px;                 /* solo icono */
+  height: 32px;
+  padding: 8px;
+
+  overflow: hidden;
+  white-space: nowrap;
 
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(6px);
-  color: #fff;
 
   border-radius: 999px;
   text-decoration: none;
+  color: #fff;
 
-  opacity: 0.6;
-  transition: opacity .25s ease, transform .25s ease;
+  transition: width .3s ease, opacity .25s ease;
+  opacity: 0.65;
 
   z-index: 9999;
 }
 
 .pixora-watermark img{
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
+  width:16px;
+  height:16px;
+  flex-shrink:0;
 }
 
+.pixora-watermark span{
+  margin-left:8px;
+  font-size:12px;
+  font-family:system-ui,sans-serif;
+
+  opacity:0;
+  transform:translateX(-6px);
+  transition:opacity .2s ease, transform .2s ease;
+}
+
+/* hover */
 .pixora-watermark:hover{
-  opacity: 1;
-  transform: translateY(-2px);
+  width:160px;        /* espacio para texto */
+  opacity:1;
+}
+
+.pixora-watermark:hover span{
+  opacity:1;
+  transform:translateX(0);
 }
 
 /* ═══════════════════════════════════════════════════
