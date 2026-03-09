@@ -27,7 +27,7 @@ const CONFIG = {
     { id: 'stage1', in: 0.00, hold: 0.06, out: 0.22, fade: 0.28 },  // Intro
     { id: 'stage2', in: 0.26, hold: 0.32, out: 0.48, fade: 0.54 },  // Concepto
     { id: 'stage3', in: 0.52, hold: 0.58, out: 0.72, fade: 0.78 },  // Oficio
-    { id: 'stage4', in: 0.76, hold: 0.82, out: 0.96, fade: 1.00 },  // CTA
+    { id: 'stage4', in: 0.76, hold: 0.82, out: 1.10, fade: 1.20 },  // CTA
   ],
 };
 
