@@ -87,47 +87,6 @@ body:has(button:hover) .cursor-follower {
   border-color: var(--accent);
 }
 
-/* ── Pantalla de carga ──────────────────────────── */
-#loader {
-  position: fixed; inset: 0;
-  background: var(--bg);
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.8s var(--ease-in), visibility 0.8s;
-}
-#loader.hidden {
-  opacity: 0; visibility: hidden; pointer-events: none;
-}
-.loader-inner {
-  display: flex; flex-direction: column;
-  align-items: center; gap: 18px;
-}
-.loader-logo {
-  font-family: var(--font-display);
-  font-size: clamp(56px, 9vw, 104px);
-  letter-spacing: 0.18em;
-  color: var(--text);
-}
-.loader-bar-track {
-  width: 240px; height: 1px;
-  background: var(--text-faint); overflow: hidden;
-}
-.loader-bar {
-  height: 100%; width: 0%;
-  background: var(--accent);
-  transition: width 0.08s linear;
-}
-.loader-pct {
-  font-size: 12px; letter-spacing: 0.3em;
-  color: var(--accent); font-weight: 400;
-}
-.loader-label {
-  font-size: 10px; letter-spacing: 0.4em;
-  text-transform: uppercase; color: var(--text-dim);
-}
-
 /* ── Navbar ─────────────────────────────────────── */
 #navbar {
   position: fixed; top: 0; left: 0; right: 0;

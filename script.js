@@ -138,30 +138,25 @@ function animateLoop() {
    PRECARGA DE FRAMES
    Carga todos los JPEGs y actualiza la barra de carga
 ───────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────
+   PRECARGA OPTIMIZADA (Background Loading)
+───────────────────────────────────────────────── */
 function preloadFrames() {
   return new Promise((resolve) => {
-
-    // Cargar y mostrar el primer frame de inmediato
+    // 1. Cargamos y mostramos solo el primer frame para arrancar
     const boot = new Image();
     boot.src = frameURL(0);
     boot.onload = () => {
       images[0] = boot;
       drawFrame(0);
+      resolve(); // <-- ¡Acá está la magia! Desbloquea la web al instante
     };
 
-    for (let i = 0; i < CONFIG.FRAME_COUNT; i++) {
+    // 2. Cargamos el resto de los frames silenciosamente de fondo
+    for (let i = 1; i < CONFIG.FRAME_COUNT; i++) {
       const img = new Image();
-
-      img.onload = img.onerror = () => {
-        loadedCount++;
-        const pct = Math.round((loadedCount / CONFIG.FRAME_COUNT) * 100);
-        if (loaderBar)  loaderBar.style.width = pct + '%';
-        if (loaderPct)  loaderPct.textContent  = pct + '%';
-        if (loadedCount >= CONFIG.FRAME_COUNT) resolve();
-      };
-
-      img.src   = frameURL(i);
-      images[i] = img;
+      img.src = frameURL(i);
+      images[i] = img; 
     }
   });
 }
@@ -434,43 +429,25 @@ function waitForGSAP() {
    7. Iniciar interacciones secundarias
 ───────────────────────────────────────────────── */
 async function main() {
-  // 0 — Prevenir que el navegador restaure el scroll previo y forzar el inicio arriba
   if ('scrollRestoration' in history) {
     history.scrollRestoration = 'manual';
   }
   window.scrollTo(0, 0);
 
-  // 1 — Canvas listo antes de cualquier pintura
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
-  
-  // ... resto de tu código ...
-  // 2 — Loop RAF siempre activo
+
   animateLoop();
 
-  // Dibujar primer frame enseguida para evitar negro
-  drawFrame(0);
-
-  // 3 — Precargar todos los frames (muestra progreso)
+  // Espera solo a que cargue el frame 0
   await preloadFrames();
 
-  // Pequeña pausa para que el usuario vea el 100%
-  await new Promise(r => setTimeout(r, 350));
-
-  // 4 — Ocultar loader
-  loader.classList.add('hidden');
-
-  // Redibujar frame 0 con canvas a tamaño correcto
-  drawFrame(0);
-
-  // 5 — Animar entrada del hero
+  // Arranca la animación de los textos de inmediato
   animateHeroIn();
 
-  // 6 — Esperar GSAP y registrar el scroll
   await waitForGSAP();
   initScrollTrigger();
 
-  // 7 — Resto de interacciones
   initReveal();
   initSmoothScroll();
   initMobileNav();
