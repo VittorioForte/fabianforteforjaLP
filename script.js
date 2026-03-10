@@ -434,10 +434,17 @@ function waitForGSAP() {
    7. Iniciar interacciones secundarias
 ───────────────────────────────────────────────── */
 async function main() {
+  // 0 — Prevenir que el navegador restaure el scroll previo y forzar el inicio arriba
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+
   // 1 — Canvas listo antes de cualquier pintura
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
-
+  
+  // ... resto de tu código ...
   // 2 — Loop RAF siempre activo
   animateLoop();
 
